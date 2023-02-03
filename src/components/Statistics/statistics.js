@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import css from './Statistics.module.css';
+import PropTypes from 'prop-types';
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
@@ -28,3 +29,8 @@ export const Statistics = ({ title, data }) => (
     </ul>
   </section>
 );
+
+Statistics.propTypes = {
+  title: PropTypes.string,
+  data: PropTypes.array,
+};

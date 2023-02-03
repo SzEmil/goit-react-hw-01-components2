@@ -1,11 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
 import css from './FriendList.module.css';
+import PropTypes from 'prop-types';
 
 export const FriendList = ({ friends }) => (
   <ul className={clsx(css.friendList)}>
     {friends.map(friend => (
-      <li className={clsx(css.item)}>
+      <li className={clsx(css.item)} key={friend.id}>
         <span
           className={clsx(css.status, {
             [css.online]: friend.isOnline,
@@ -22,3 +23,7 @@ export const FriendList = ({ friends }) => (
     ))}
   </ul>
 );
+
+FriendList.propTypes = {
+  friends: PropTypes.array,
+};
