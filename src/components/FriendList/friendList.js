@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import css from './FriendList.module.css';
-import PropTypes from 'prop-types';
+import PropTypes, { bool } from 'prop-types';
 
 export const FriendList = ({ friends }) => (
   <ul className={clsx(css.friendList)}>
@@ -25,5 +25,12 @@ export const FriendList = ({ friends }) => (
 );
 
 FriendList.propTypes = {
-  friends: PropTypes.array,
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      avatar: PropTypes.string,
+      name: PropTypes.string,
+      isOnline: PropTypes.bool,
+      id: PropTypes.number,
+    })
+  ),
 };
